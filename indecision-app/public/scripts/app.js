@@ -1,80 +1,58 @@
 'use strict';
 
-var app = {
-  title: 'Indecision App',
-  subtitle: 'Put your life in the hands of a computer',
-  options: ['One', 'Two']
+var square = function square(x) {
+	return x * x;
 };
 
-var template = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    app.title
-  ),
-  app.subtitle && React.createElement(
-    'p',
-    null,
-    app.subtitle
-  ),
-  app.options.length > 0 ? 'Here are your options' : 'No options',
-  React.createElement(
-    'ol',
-    null,
-    React.createElement(
-      'li',
-      null,
-      'Item one'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Item two'
-    )
-  )
-);
+var squareArrow = function squareArrow(x) {
+	return x * x;
+};
+
+console.log(squareArrow(8));
+
+var getFirstName = function getFirstName(fullName) {
+	return fullName.split(' ')[0];
+};
+
+console.log(getFirstName('Mehmet Sonmezates'));
+
+var add = function add(a, b) {
+	// console.log(arguments); //We don't have access to arguments with arrow functions, only es5 functions
+	return a + b;
+};
+
+console.log(add(1, 2, 3));
+
+// this keyword - no longer bound
 
 var user = {
-  name: 'Mehmet',
-  age: 32,
-  location: 'Austin'
+	name: 'Mehmet',
+	cities: ['Austin', 'Dallas', 'Houston'],
+	printPlacesLived: function printPlacesLived() {
+		var _this = this;
+
+		return this.cities.map(function (city) {
+			return _this.name + ' has lived in ' + city;
+		});
+
+		// this.cities.forEach((city) => {
+		// 	console.log(this.name + ' has lived in ' + city);
+		// });
+	}
 };
 
-function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
-      null,
-      'Location: ',
-      location
-    );
-  }
-}
+console.log(user.printPlacesLived());
 
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    user.name ? user.name : 'Anonymous'
-  ),
-  user.age && user.age >= 18 && React.createElement(
-    'p',
-    null,
-    'Age: ',
-    user.age
-  ),
-  getLocation(user.location),
-  React.createElement(
-    'p',
-    null,
-    'Test'
-  )
-);
+var multiplier = {
+	numbers: [1, 2, 3],
+	multiplyBy: 2,
+	multiply: function multiply() {
+		var _this2 = this;
 
-var appRoot = document.getElementById('app');
+		return this.numbers.map(function (num) {
+			return num * _this2.multiplyBy;
+		});
+	}
+};
 
-ReactDOM.render(template, appRoot);
+console.log(multiplier.multiply());
