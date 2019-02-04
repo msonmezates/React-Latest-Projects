@@ -34,6 +34,12 @@ class App extends Component {
       })
     });
   }
+  // Delete todo item when x is clicked
+  handleDeleteButton = (id) => {
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -41,6 +47,7 @@ class App extends Component {
         <Todos
           todos={this.state.todos}
           markComplete={this.markComplete}
+          handleDeleteButton={this.handleDeleteButton}
         />
       </div>
     );
