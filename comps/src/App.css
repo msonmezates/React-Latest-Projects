@@ -1,0 +1,61 @@
+.comment {
+  display: flex;
+  width: 30vw;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.time {
+  margin-left: 5%;
+  font-weight: 100;
+}
+
+.image-section {
+  flex: 1;
+}
+
+.comment-section {
+  flex: 2;
+  padding-left: 10%;
+}
+
+.approval-card {
+  width: 40vw;
+  border: 1px solid #333;
+  margin-bottom: 1rem;
+}
+
+.approval-card-text-section {
+  font-size: 2rem;
+  font-weight: 200;
+  border-bottom: 1px solid #333;
+}
+
+.approval-card-text {
+  padding: 0 10px;
+}
+
+.btn {
+  padding: 10px;
+  width: 18vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.approve-btn {
+  margin-left: 1vw;
+  border-color: green;
+  color: green;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; 
+}
+
+.reject-btn {
+  margin-right: 1vw;
+  border-color: red;
+  color: red;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; 
+}
