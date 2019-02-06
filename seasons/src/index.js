@@ -4,13 +4,10 @@ import ReactDOM from 'react-dom';
 import SeasonDisplay from './components/SeasonDisplay';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lat: null,
-      errorMessage: ''
-    };
-  }
+  state = {
+    lat: null,
+    errorMessage: ''
+  };
 
   componentDidMount() {
     console.log('my component was rendered, componentDidMount');
@@ -31,7 +28,7 @@ export default class App extends Component {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>
     } else if (this.state.lat && !this.state.errorMessage) {
-      return <div>Lat: {this.state.lat}</div>
+      return <SeasonDisplay lat={this.state.lat} />
     }
     return <div>Loading...</div>
   }
