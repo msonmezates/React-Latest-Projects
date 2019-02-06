@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import SeasonDisplay from './components/SeasonDisplay';
+import Spinner from './components/Spinner';
 
 export default class App extends Component {
   state = {
@@ -10,12 +11,7 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    console.log('my component was rendered, componentDidMount');
     this.getPosition();
-  }
-
-  componentDidUpdate() {
-    console.log('my component updated, it rerendered, componentDidUpdate');
   }
 
   getPosition = () => {
@@ -24,13 +20,22 @@ export default class App extends Component {
       err => this.setState({ errorMessage: err.message })
     );
   }
-  render() {
+
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>
     } else if (this.state.lat && !this.state.errorMessage) {
       return <SeasonDisplay lat={this.state.lat} />
     }
-    return <div>Loading...</div>
+    return <Spinner message="Please accept location request" />
+  }
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 
