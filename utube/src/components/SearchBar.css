@@ -1,0 +1,16 @@
+.search-bar {
+  border: 1px solid #eee;
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar-label {
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+.search-bar-input-box {
+  padding: 5px;
+}

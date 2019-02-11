@@ -1,0 +1,14 @@
+.video-list-item {
+  width: 50%;
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.video-description {
+  list-style: none;
+  padding-left: 20px;
+  align-self: center;
+}
