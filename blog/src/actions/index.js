@@ -1,12 +1,11 @@
-import _ from 'lodash';
 import jsonPlaceHolder from '../apis/jsonPlaceHolder';
 
 export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   await dispatch(fetchPosts());
   const posts = await getState().posts;
-  // Get all unique ids
-  const userIds = _.uniq(_.map(posts, 'userId'));
-  userIds.map(id => dispatch(fetchUser(id)));
+  // Get all unique user ids 
+  const uniqueIds = posts.reduce((userIds, post) => userIds.indexOf(post.userId) >= 0 ? userIds : [...userIds, post.userId], [])
+  uniqueIds.map(id => dispatch(fetchUser(id)));
 }
 
 // Action creator to get list of posts
