@@ -56,9 +56,9 @@ class GoogleAuth extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ auth }) => {
 	return {
-		isSignedIn: state.auth.isSignedIn
+		isSignedIn: auth.isSignedIn
 	};
 };
 
