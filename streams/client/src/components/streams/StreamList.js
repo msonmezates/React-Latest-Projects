@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { fetchStreams } from '../../actions';
 
 const StreamList = (props) => {
-  console.log(props.fetchStreams())
   return (
     <div>
-      hello
+      StreamList
     </div>
   );
 };
