@@ -21,7 +21,13 @@ export default (state = {}, action) => {
     case EDIT_STREAM:
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_STREAM:
-      return { ...state, [action.payload.id]: undefined };
+      const newState = Object.assign({}, state);
+      for (let key in newState) {
+        if (key === action.payload) {
+          delete newState[key];
+        }
+      }
+      return { ...newState };
     default:
       return state;
   }
