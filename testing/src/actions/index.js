@@ -1,4 +1,4 @@
-import { SAVE_COMMENT } from './contants';
+import { SAVE_COMMENT } from './types';
 
 export const saveComment = (comment) => {
 	return {

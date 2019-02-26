@@ -1,4 +1,4 @@
-import { SAVE_COMMENT } from 'actions/contants';
+import { SAVE_COMMENT } from 'actions/types';
 
 export default (state = [], action) => {
 	switch (action.type) {
