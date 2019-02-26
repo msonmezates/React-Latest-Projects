@@ -1,13 +1,19 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import Root from 'Root';
 import CommentBox from 'components/CommentBox';
 
 describe('CommentBox component', () => {
 	let wrapped;
 
 	beforeEach(() => {
-		wrapped = mount(<CommentBox />);
+		// make sure it's connected to redux store
+		wrapped = mount(
+			<Root>
+				<CommentBox />
+			</Root>
+		);
 	});
 
 	afterEach(() => {
