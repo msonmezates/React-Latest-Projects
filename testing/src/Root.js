@@ -5,8 +5,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from 'reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware()));
 
-export default (props) => {
-	return <Provider store={store}>{props.children}</Provider>;
+export default ({ children, initialState = {} }) => {
+	return (
+		<Provider store={createStore(reducers, initialState, composeEnhancers(applyMiddleware()))}>{children}</Provider>
+	);
 };
