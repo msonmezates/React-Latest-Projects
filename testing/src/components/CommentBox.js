@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 
+import requireAuth from 'components/requireAuth';
+
 class CommentBox extends Component {
 	state = {
 		comment: ''
@@ -15,7 +17,7 @@ class CommentBox extends Component {
 		e.preventDefault();
 
 		this.props.saveComment(this.state.comment);
-		this.setState({ comment: '' }); // Reset textarea
+		this.setState({ comment: '' });
 	};
 
 	render() {
@@ -36,4 +38,4 @@ class CommentBox extends Component {
 	}
 }
 
-export default connect(null, actions)(CommentBox);
+export default connect(null, actions)(requireAuth(CommentBox));
