@@ -9,6 +9,11 @@ function tokenForUser(user) {
 	return token;
 }
 
+exports.signin = function(req, res, next) {
+	// assign a token to the user
+	res.send({ token: tokenForUser(req.user) });
+};
+
 exports.signup = function(req, res, next) {
 	const { email, password } = req.body;
 	// Check to see if a user with the given email exists
