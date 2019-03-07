@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 
+import reducers from './reducers';
 import App from './components/App';
 import Welcome from './components/Welcome';
 import SignUp from './components/auth/SignUp';
-import reducers from './reducers';
+import Feature from './components/Feature';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -20,6 +21,7 @@ ReactDOM.render(
 			<App>
 				<Route path="/" exact component={Welcome} />
 				<Route path="/signup" component={SignUp} />
+				<Route path="/feature" component={Feature} />
 			</App>
 		</BrowserRouter>
 	</Provider>,
