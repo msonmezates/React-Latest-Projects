@@ -7,7 +7,7 @@ export default class UserCreate extends Component {
 
 	render() {
 		// Use this.context when using a single context object
-		const text = this.context === 'english' ? 'Name' : 'Naam';
+		const text = this.context.language === 'english' ? 'Name' : 'Naam';
 
 		return (
 			<div className="ui field">

@@ -8,17 +8,15 @@ export default class Button extends Component {
 		return value === 'english' ? 'Submit' : 'Voorleggen';
 	};
 
-	renderButtonClass = (value) => {
-		return;
-	};
-
 	render() {
 		return (
 			// Use Consumer when pulling from multiple context object
 			<ColorContext.Consumer>
 				{(color) => (
 					<button className={`ui button ${color}`}>
-						<LanguageContext.Consumer>{(value) => this.renderSubmit(value)}</LanguageContext.Consumer>
+						<LanguageContext.Consumer>
+							{({ language }) => this.renderSubmit(language)}
+						</LanguageContext.Consumer>
 					</button>
 				)}
 			</ColorContext.Consumer>
