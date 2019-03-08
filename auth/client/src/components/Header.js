@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
+import './Header.css';
+
+class Header extends Component {
+	renderLinks = () => {
+		if (this.props.authenticated) {
+			return (
+				<div>
+					<Link to="/signout">Sign Out</Link>
+					<Link to="/feature">Feature</Link>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<Link to="/signup">Sign Up</Link>
+					<Link to="/signin">Sign In</Link>
+				</div>
+			);
+		}
+	};
+
 	render() {
 		return (
-			<div>
+			<div className="header">
 				<Link to="/">Redux Auth</Link>
-				<Link to="/signup">Sign Up</Link>
-				<Link to="/signin">Sign In</Link>
-				<Link to="/signout">Sign Out</Link>
-				<Link to="/feature">Feature</Link>
+				{this.renderLinks()}
 			</div>
 		);
 	}
 }
+
+const mapStateToProps = ({ auth }) => {
+	return {
+		authenticated: auth.authenticated
+	};
+};
+
+export default connect(mapStateToProps)(Header);
