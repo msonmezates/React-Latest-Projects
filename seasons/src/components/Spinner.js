@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Spinner = (props) => {
-  return (
-    <div className="ui active dimmer">
-      <div className="ui text loader">{props.message}</div>
-    </div>
-  );
-}
+	return (
+		<div className="ui active dimmer">
+			<div className="ui text loader">{props.message}</div>
+		</div>
+	);
+};
 
 Spinner.defaultProps = {
-  message: 'Loading...'
+	message: 'Loading...'
 };
 
 Spinner.propTypes = {
-  message: PropTypes.string
+	message: PropTypes.string
 };
 
 export default Spinner;
